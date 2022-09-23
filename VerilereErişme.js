@@ -7,7 +7,7 @@ app.get('/',(req,res)=>{
 })
 
 app.get('/users/:uid',(req,res)=>{
-    let founduser=database.Users.find(x,(x.Id==req.params.uid))
+    let founduser=database.Users.find(x=>x.Id==parseInt(req.params.uid))
     let jsonstring=JSON.stringify(founduser)
     res.send(jsonstring)
 })
